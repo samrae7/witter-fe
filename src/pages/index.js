@@ -14,15 +14,19 @@ const IndexPage = ({ data }) => {
       <SEO title="Home" />
       <ul>
         {data.allReview.edges.map(({ node }) => {
-          const { film, fields } = node;
+          const { film, fields, date, id } = node;
           return (
             <li>
-              <FilmSnippet film={film} slug={fields.slug} />
+              <FilmSnippet
+                key={id}
+                film={film}
+                slug={fields.slug}
+                date={date}
+              />
             </li>
           );
         })}
       </ul>
-      <Link to="/page-2/">Go to page 2</Link>
     </Layout>
   );
 };
@@ -41,6 +45,7 @@ export const query = graphql`
           fields {
             slug
           }
+          date(formatString: "DD MMMM YYYY")
         }
       }
     }

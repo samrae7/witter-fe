@@ -2,22 +2,22 @@ import React from "react";
 import { Link } from "gatsby";
 import { graphql } from "gatsby";
 import Layout from "../components/layout";
-import Image from "../components/image";
+import FilmSnippet from "../components/FilmSnippet";
 import SEO from "../components/seo";
+
+import "typeface-clear-sans";
+import "./index.css";
 
 const IndexPage = ({ data }) => {
   return (
     <Layout>
       <SEO title="Home" />
-      <p>Welcome to the Witter Feed.</p>
-      <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-        <Image />
-      </div>
       <ul>
-        {data.allReview.edges.map(review => {
+        {data.allReview.edges.map(({ node }) => {
+          const { film, fields } = node;
           return (
             <li>
-              <Link to={review.node.fields.slug}>{review.node.film.name}</Link>
+              <FilmSnippet film={film} slug={fields.slug} />
             </li>
           );
         })}
@@ -34,8 +34,9 @@ export const query = graphql`
         node {
           id
           film {
-            name
             id
+            name
+            backdrop_image
           }
           fields {
             slug

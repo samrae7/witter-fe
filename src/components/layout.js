@@ -26,18 +26,23 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
       <div
         style={{
           margin: `0 auto`,
           maxWidth: 960,
+          position: `relative`,
+          minHeight: `100vh`,
         }}
       >
+        <Header siteTitle={data.site.siteMetadata.title} />
         <main>{children}</main>
         <footer
           style={{
             fontSize: `0.5em`,
             paddingLeft: `20px`,
+            position: `absolute`,
+            bottom: 0,
+            paddingBottom: `10px`,
           }}
         >
           © {new Date().getFullYear()}, Built with

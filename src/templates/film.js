@@ -3,22 +3,53 @@ import Layout from "../components/layout";
 import Video from "../components/video";
 import styled from "styled-components";
 
+const PosterFrame = styled.div`
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+`;
+
+const FilmFrame = styled.div`
+  position: relative;
+`;
+
+const FilmTitleFrame = styled.div`
+  padding: 1em;
+  padding-left: calc(26vw + 40px);
+`;
+
+const FilmTitle = styled.h2`
+  margin: 0;
+  font-size: 1em;
+`;
+
+const ReviewDate = styled.span`
+  font-size: 0.7em;
+`;
+
 export default ({ data }) => {
   const {
     review: { film, date, youTubeVideoId: videoId },
   } = data;
   return (
     <Layout>
-      <h2>{film.name}</h2>
-      <p>Reviewed on {date}</p>
-      <img
-        alt={film.name}
-        src={`https://image.tmdb.org/t/p/w92/${film.poster}`}
-      />
-      <Image
-        alt={film.name}
-        src={`https://image.tmdb.org/t/p/w300/${film.backdrop_image}`}
-      />
+      <FilmFrame>
+        <Image
+          alt={film.name}
+          src={`https://image.tmdb.org/t/p/w780/${film.backdrop_image}`}
+        />
+        <PosterFrame>
+          <img
+            alt={film.name}
+            src={`https://image.tmdb.org/t/p/w92/${film.poster}`}
+          />
+        </PosterFrame>
+        <FilmTitleFrame>
+          <FilmTitle>{film.name}</FilmTitle>
+          <ReviewDate>Reviewed on {date}</ReviewDate>
+        </FilmTitleFrame>
+      </FilmFrame>
+
       <Video
         videoSrcURL={`https://www.youtube.com/embed/${videoId}`}
         videoTitle={film.name}

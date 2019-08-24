@@ -15,13 +15,8 @@ const IndexPage = ({ data }) => {
         {data.allReview.edges.map(({ node }) => {
           const { film, fields, date, id } = node;
           return (
-            <li>
-              <FilmSnippet
-                key={id}
-                film={film}
-                slug={fields.slug}
-                date={date}
-              />
+            <li key={id}>
+              <FilmSnippet film={film} slug={fields.slug} date={date} />
             </li>
           );
         })}

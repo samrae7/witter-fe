@@ -2,6 +2,7 @@ import React from "react";
 import Layout from "../components/layout";
 import Video from "../components/video";
 import styled from "styled-components";
+import { getBackdropImage, getPosterImage } from "../utils/image.utils";
 
 const PosterFrame = styled.div`
   position: absolute;
@@ -34,16 +35,12 @@ export default ({ data }) => {
   return (
     <Layout>
       <FilmFrame>
-        <Image
-          alt={film.name}
-          src={`https://image.tmdb.org/t/p/w780/${film.backdrop_image}`}
-        />
-        <PosterFrame>
-          <img
-            alt={film.name}
-            src={`https://image.tmdb.org/t/p/w92/${film.poster}`}
-          />
-        </PosterFrame>
+        <Image alt={film.name} src={getBackdropImage(film.backdrop_image)} />
+        {film.poster && (
+          <PosterFrame>
+            <img alt={film.name} src={getPosterImage(film.poster)} />
+          </PosterFrame>
+        )}
         <FilmTitleFrame>
           <FilmTitle>{film.name}</FilmTitle>
           <ReviewDate>Reviewed on {date}</ReviewDate>

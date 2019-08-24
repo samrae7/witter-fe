@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
+import { getBackdropImage } from "../utils/image.utils";
 
 const StyledLink = styled(props => <Link {...props} />)`
   text-decoration: none;
@@ -30,10 +31,7 @@ const FilmSnippet = ({ film, slug, date }) => {
     <>
       <StyledLink to={slug}>
         <Card>
-          <Image
-            src={`https://image.tmdb.org/t/p/w780/${film.backdrop_image}`}
-            alt={film.name}
-          />
+          <Image src={getBackdropImage(film.backdrop_image)} alt={film.name} />
           <TitleWrapper>
             <Title>{film.name}</Title>
             Reviewed on {date}

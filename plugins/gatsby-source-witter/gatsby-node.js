@@ -1,5 +1,5 @@
 const fetch = require("node-fetch");
-const queryString = require("query-string");
+
 exports.sourceNodes = (
   { actions, createNodeId, createContentDigest },
   configOptions
@@ -9,7 +9,8 @@ exports.sourceNodes = (
   delete configOptions.plugins;
   // plugin code goes here...
   // Join apiOptions with the Pixabay API URL
-  const apiUrl = `http://localhost:3000/reviews`;
+  const basePath = process.env.PROD_BASE_PATH || `http://localhost:3000/`;
+  const apiUrl = `${basePath}/reviews`;
   // Gatsby expects sourceNodes to return a promise
   return (
     // Fetch a response from the apiUrl
@@ -20,7 +21,6 @@ exports.sourceNodes = (
       .then(data => {
         // For each query result (or 'hit')
         data.forEach(review => {
-          console.log("Review data is:", review);
           const nodeData = processReview(
             review,
             createNodeId,

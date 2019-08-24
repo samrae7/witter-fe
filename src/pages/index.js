@@ -32,7 +32,7 @@ const IndexPage = ({ data }) => {
 
 export const query = graphql`
   query IndexPageQuery {
-    allReview {
+    allReview(sort: { fields: date, order: DESC }) {
       edges {
         node {
           id

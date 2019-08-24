@@ -9,7 +9,7 @@ exports.sourceNodes = (
   delete configOptions.plugins;
   // plugin code goes here...
   // Join apiOptions with the Pixabay API URL
-  const basePath = process.env.PROD_BASE_PATH || `http://localhost:3000`;
+  const basePath = process.env.API_BASE_PATH || `http://localhost:3000`;
   const apiUrl = `${basePath}/reviews`;
   // Gatsby expects sourceNodes to return a promise
   return (

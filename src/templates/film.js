@@ -1,4 +1,5 @@
 import React from "react";
+import { graphql } from "gatbsy";
 import Layout from "../components/layout";
 import Video from "../components/video";
 import styled from "styled-components";

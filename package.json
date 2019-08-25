@@ -17,11 +17,13 @@
     "gatsby-plugin-sharp": "^2.2.11",
     "gatsby-plugin-styled-components": "^3.1.2",
     "gatsby-source-filesystem": "^2.1.9",
+    "gatsby-transformer-remark": "^2.6.19",
     "gatsby-transformer-sharp": "^2.2.6",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-helmet": "^5.2.1",
+    "react-icons": "^3.7.0",
     "styled-components": "^4.3.2",
     "typeface-clear-sans": "0.0.44"
   },

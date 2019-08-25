@@ -3,15 +3,20 @@ import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import FilmSnippet from "../components/FilmSnippet";
 import SEO from "../components/seo";
+import styled from "styled-components";
 
 import "typeface-clear-sans";
 import "./index.css";
+
+const List = styled.ul`
+  margin-top: 0;
+`;
 
 const IndexPage = ({ data }) => {
   return (
     <Layout>
       <SEO title="Home" />
-      <ul>
+      <List>
         {data.allReview.edges.map(({ node }) => {
           const { film, fields, date, id } = node;
           return (
@@ -20,7 +25,7 @@ const IndexPage = ({ data }) => {
             </li>
           );
         })}
-      </ul>
+      </List>
     </Layout>
   );
 };

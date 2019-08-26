@@ -28,6 +28,8 @@ const Layout = ({ children }) => {
     <>
       <div
         style={{
+          display: `flex`,
+          flexDirection: `column`,
           margin: `0 auto`,
           maxWidth: 960,
           position: `relative`,
@@ -35,12 +37,19 @@ const Layout = ({ children }) => {
         }}
       >
         <Header siteTitle={data.site.siteMetadata.title} />
-        <main>{children}</main>
+        <main
+          style={{
+            display: `flex`,
+            flexDirection: `column`,
+            flex: `1 0 auto`,
+          }}
+        >
+          {children}
+        </main>
         <footer
           style={{
             fontSize: `0.5em`,
             paddingLeft: `20px`,
-            position: `absolute`,
             bottom: 0,
             paddingBottom: `10px`,
           }}

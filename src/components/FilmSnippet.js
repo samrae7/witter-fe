@@ -13,10 +13,9 @@ const Image = styled.img`
 
 const Card = styled.div`
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 1.4em;
 `;
 
-const Title = styled.h3`
+const Title = styled.h3`  
   font-size: 1.1em;
   margin: 0;
 `;

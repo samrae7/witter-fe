@@ -38,7 +38,10 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `);
 
-  result.data.allReview.edges.forEach(({ node }) => {
+  const reviews = result.data.allReview.edges;
+
+  // create individual film pages
+  reviews.forEach(({ node }) => {
     createPage({
       path: node.fields.slug,
       component: path.resolve(`./src/templates/film.js`),
@@ -50,13 +53,27 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 
+  // create paginated lists of reviews
+  const reviewsPerPage = 6;
+  const numPages = Math.ceil(reviews.length / reviewsPerPage);
+  Array.from({ length: numPages }).forEach((_, i) => {
+    createPage({
+      path: i === 0 ? `/` : `/films/${i + 1}`,
+      component: path.resolve("./src/templates/film-list.js"),
+      context: {
+        limit: reviewsPerPage,
+        skip: i * reviewsPerPage,
+        numPages,
+        currentPage: i + 1,
+      },
+    });
+  });
+
+  // create md pages
   const blogPostTemplate = path.resolve(`src/templates/post.js`);
   const mdResult = await graphql(`
     {
-      allMarkdownRemark(
-        sort: { order: DESC, fields: [frontmatter___date] }
-        limit: 1000
-      ) {
+      allMarkdownRemark(limit: 1000) {
         edges {
           node {
             frontmatter {

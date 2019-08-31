@@ -51,7 +51,7 @@ const Layout = ({ children }) => {
             fontSize: `0.5em`,
             paddingLeft: `20px`,
             bottom: 0,
-            paddingBottom: `10px`,
+            padding: `10px`,
           }}
         >
           © {new Date().getFullYear()}, Built with

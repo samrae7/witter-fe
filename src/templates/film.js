@@ -17,7 +17,7 @@ const FilmFrame = styled.div`
 
 const FilmTitleFrame = styled.div`
   padding: 1em;
-  padding-left: calc(26vw + 40px);
+  padding-left: 6.5em;
 `;
 
 const FilmTitle = styled.h2`

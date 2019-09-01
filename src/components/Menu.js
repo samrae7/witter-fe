@@ -18,6 +18,7 @@ const StyledLink = styled(props => <Link {...props} />)`
 const StyledMenu = styled.menu`
   list-style: none;
   position: absolute;
+  z-index: 1;
   padding-left: 0;
   right: 0;
   width: 100px;

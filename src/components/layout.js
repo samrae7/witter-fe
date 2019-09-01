@@ -42,6 +42,7 @@ const Layout = ({ children }) => {
             display: `flex`,
             flexDirection: `column`,
             flex: `1 0 auto`,
+            paddingTop: `0.8rem`,
           }}
         >
           {children}

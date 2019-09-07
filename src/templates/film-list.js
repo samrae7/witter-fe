@@ -7,11 +7,11 @@ import styled from "styled-components";
 import PaginationLinks from "../components/PaginationLinks";
 
 import "typeface-clear-sans";
-import "../pages/index.css";
 
 const List = styled.ul`
   margin-top: 0;
   flex: 1 0 auto;
+  list-style: none;
 `;
 
 const ListItem = styled.li`

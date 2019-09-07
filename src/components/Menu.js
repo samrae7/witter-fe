@@ -18,7 +18,7 @@ const StyledLink = styled(props => <Link {...props} />)`
 const StyledMenu = styled.menu`
   list-style: none;
   position: absolute;
-  z-index: 1;
+  z-index: 2;
   padding-left: 0;
   right: 0;
   width: 100px;
@@ -36,7 +36,11 @@ const IconContainer = styled.div`
 const Menu = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
   return (
-    <div>
+    <div
+      style={{
+        flexGrow: 0,
+      }}
+    >
       <IconContainer onClick={() => setMenuOpen(!isMenuOpen)}>
         {isMenuOpen ? (
           <MdClose size={36} color="white" />

@@ -15,7 +15,7 @@ const Card = styled.div`
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 `;
 
-const Title = styled.h3`  
+const Title = styled.h3`
   font-size: 1.1em;
   margin: 0;
 `;
@@ -23,6 +23,7 @@ const Title = styled.h3`
 const TitleWrapper = styled.div`
   color: black;
   padding: 0.5em;
+  padding-left: 0.6rem;
 `;
 
 const FilmSnippet = ({ film, slug, date }) => {

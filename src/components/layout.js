@@ -13,6 +13,7 @@ import "typeface-clear-sans";
 import Header from "./header";
 import SearchForm from "./SearchForm";
 import "./layout.css";
+import { IconContext } from "react-icons";
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -26,7 +27,7 @@ const Layout = ({ children }) => {
   `);
 
   return (
-    <>
+    <IconContext.Provider value={{ style: { verticalAlign: "middle" } }}>
       <div
         style={{
           display: `flex`,
@@ -62,7 +63,7 @@ const Layout = ({ children }) => {
           <a href="https://www.gatsbyjs.org">Gatsby</a>
         </footer>
       </div>
-    </>
+    </IconContext.Provider>
   );
 };
 

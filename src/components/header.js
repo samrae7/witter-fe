@@ -13,7 +13,7 @@ const Header = ({ siteTitle }) => (
       style={{
         margin: `0 auto`,
         maxWidth: 960,
-        padding: `0 0 0 1.0875rem`,
+        padding: `0 0 0 0.6rem`,
         display: `flex`,
         justifyContent: `space-between`,
       }}
@@ -24,6 +24,7 @@ const Header = ({ siteTitle }) => (
           paddingTop: `0.5rem`,
           fontFamily: `typeface-cousine, monospace`,
           fontSize: `1.3em`,
+          flexGrow: 1,
         }}
       >
         <Link

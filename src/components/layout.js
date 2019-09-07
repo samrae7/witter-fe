@@ -11,6 +11,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import "typeface-clear-sans";
 
 import Header from "./header";
+import SearchForm from "./SearchForm";
 import "./layout.css";
 
 const Layout = ({ children }) => {
@@ -37,6 +38,7 @@ const Layout = ({ children }) => {
         }}
       >
         <Header siteTitle={data.site.siteMetadata.title} />
+        <SearchForm />
         <main
           style={{
             display: `flex`,

@@ -2,9 +2,18 @@ import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import { Dropdown } from "semantic-ui-react";
 import { navigate } from "gatsby";
+import * as JsSearch from "js-search";
 
 // TODO pass custom icon so that icon changes to X when open
 // const Icon = () => <i class="search icon"></i>;
+
+// search?: boolean | ((options: DropdownItemProps[], value: string) => DropdownItemProps[])
+function findItems(options, value) {
+  const search = new JsSearch.Search(["key"]);
+  search.addIndex(["text"]);
+  search.addDocuments(options);
+  return search.search(value);
+}
 
 function SearchForm() {
   const data = useStaticQuery(graphql`
@@ -51,7 +60,7 @@ function SearchForm() {
     <Dropdown
       placeholder="Search here"
       fluid
-      search
+      search={findItems}
       selection
       options={films}
       onChange={(event, data) => navigate(data.value)}

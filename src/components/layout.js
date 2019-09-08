@@ -12,8 +12,10 @@ import "typeface-clear-sans";
 
 import Header from "./header";
 import SearchForm from "./SearchForm";
-import "./layout.css";
 import { IconContext } from "react-icons";
+
+import "./layout.css";
+import "semantic-ui-css/semantic.min.css";
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`

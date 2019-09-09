@@ -14,8 +14,8 @@ import Header from "./header";
 import SearchForm from "./SearchForm";
 import { IconContext } from "react-icons";
 
-import "./layout.css";
 import "semantic-ui-css/semantic.min.css";
+import "./layout.css";
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`

@@ -4,6 +4,7 @@ import Layout from "../components/layout";
 import Video from "../components/video";
 import styled from "styled-components";
 import { getBackdropImage, getPosterImage } from "../utils/image.utils";
+import { Breadcrumb } from "semantic-ui-react";
 
 const PosterFrame = styled.div`
   position: absolute;
@@ -16,13 +17,12 @@ const FilmFrame = styled.div`
 `;
 
 const FilmTitleFrame = styled.div`
-  padding: 1em;
-  padding-left: 6.5em;
+  padding: 1rem;
+  padding-left: 8.5rem;
 `;
 
-const FilmTitle = styled.h2`
+const FilmTitle = styled.h3`
   margin: 0;
-  font-size: 1em;
 `;
 
 const ReviewDate = styled.span`
@@ -31,10 +31,24 @@ const ReviewDate = styled.span`
 
 export default ({ data }) => {
   const {
-    review: { film, date, youTubeVideoId: videoId },
+    review: { id, film, date, youTubeVideoId: videoId },
   } = data;
+  const sections = [
+    { key: "films", content: "Films", href: "/" },
+    {
+      key: film.name,
+      content: film.name,
+      active: true,
+      href: `/film/${id}`,
+    },
+  ];
   return (
     <Layout>
+      <Breadcrumb
+        style={{ paddingBottom: `0.8rem`, paddingLeft: `0.6rem` }}
+        icon="right angle"
+        sections={sections}
+      />
       <FilmFrame>
         <Image alt={film.name} src={getBackdropImage(film.backdrop_image)} />
         {film.poster && (

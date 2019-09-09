@@ -8,7 +8,6 @@
 const path = require(`path`);
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
-  console.log(node.internal.type);
   if (node.internal.type === `Review`) {
     const { createNodeField } = actions;
     const slug = `/film/${node.id}`;
